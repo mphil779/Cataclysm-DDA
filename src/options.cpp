@@ -1,5 +1,6 @@
 #include "options.h"
 
+#include <float.h>
 #include "cata_utility.h"
 #include "catacharset.h"
 #include "cursesdef.h"
@@ -150,8 +151,8 @@ void options_manager::add_external( const std::string &sNameIn, const std::strin
     thisOpt.iMin = INT_MIN;
     thisOpt.iMax = INT_MAX;
 
-    thisOpt.fMin = INT_MIN;
-    thisOpt.fMax = INT_MAX;
+    thisOpt.fMin = FLT_MIN;
+    thisOpt.fMax = FLT_MAX;
 
     thisOpt.hide = COPT_ALWAYS_HIDE;
     thisOpt.setSortPos( sPageIn );

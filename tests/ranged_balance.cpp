@@ -72,7 +72,7 @@ static void equip_shooter( npc &shooter, const std::vector<std::string> &apparel
     shooter.setpos( shooter_pos );
     shooter.worn.clear();
     shooter.inv.clear();
-    for( const std::string article : apparel ) {
+    for( const std::string &article : apparel ) {
         shooter.wear_item( item( article ) );
     }
 }

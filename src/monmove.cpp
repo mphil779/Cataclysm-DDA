@@ -3,6 +3,7 @@
 #include "monster.h" // IWYU pragma: associated
 
 #include <cmath>
+#include <float.h>
 
 #include "cursesdef.h"
 #include "debug.h"
@@ -158,22 +159,22 @@ void monster::wander_to( const tripoint &p, int f )
 
 float monster::rate_target( Creature &c, float best, bool smart ) const
 {
-    const int d = rl_dist( pos(), c.pos() );
+    const auto d = rl_dist( pos(), c.pos() );
     if( d <= 0 ) {
-        return INT_MAX;
+        return FLT_MAX;
     }
 
     // Check a very common and cheap case first
     if( !smart && d >= best ) {
-        return INT_MAX;
+        return FLT_MAX;
     }
 
     if( !sees( c ) ) {
-        return INT_MAX;
+        return FLT_MAX;
     }
 
     if( !smart ) {
-        return d;
+        return int ( d );
     }
 
     float power = c.power_rating();
@@ -184,10 +185,10 @@ float monster::rate_target( Creature &c, float best, bool smart ) const
     }
 
     if( power > 0 ) {
-        return d / power;
+        return int ( d ) / power;
     }
 
-    return INT_MAX;
+    return FLT_MAX;
 }
 
 void monster::plan( const mfactions &factions )
@@ -356,7 +357,7 @@ void monster::plan( const mfactions &factions )
                     wandf = 2;
                     target = nullptr;
                     // Swarm to the furthest ally you can see
-                } else if( rating < INT_MAX && rating > dist && wandf <= 0 ) {
+                } else if( rating < FLT_MAX && rating > dist && wandf <= 0 ) {
                     target = &mon;
                     dist = rating;
                 }

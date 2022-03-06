@@ -4,6 +4,7 @@
 #include <memory>
 #include <numeric>
 #include <sstream>
+#include <float.h>
 
 #include "ammo.h"
 #include "cata_algo.h"
@@ -120,10 +121,10 @@ tripoint good_escape_direction( const npc &who )
 
     const auto rate_pt = [&who]( const tripoint & p ) {
         if( !g->m.passable( p ) ) {
-            return INT_MAX;
+            return FLT_MAX;
         }
 
-        int rating = 0;
+        float rating = 0;
         for( const auto &e : g->m.field_at( p ) ) {
             if( who.is_dangerous_field( e.second ) ) {
                 // @todo: Rate fire higher than smoke
