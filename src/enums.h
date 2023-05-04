@@ -5,6 +5,7 @@
 #include <climits>
 #include <ostream>
 #include <utility>
+#include <cstdint>
 
 class JsonOut;
 class JsonIn;

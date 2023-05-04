@@ -12,6 +12,7 @@
 #include <vector>
 #include <bitset>
 #include <iterator>
+#include <cstdint>
 
 // JSON parsing and serialization tools for Cataclysm-DDA.
 // For documentation, see the included header, json.h.
