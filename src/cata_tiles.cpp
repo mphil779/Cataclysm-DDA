@@ -3189,16 +3189,11 @@ template<typename Iter, typename Func>
 void cata_tiles::lr_generic( Iter begin, Iter end, Func id_func, const std::string &label,
                              const std::string &prefix )
 {
-    int missing = 0;
-    int present = 0;
     std::string missing_list;
     for( ; begin != end; ++begin ) {
         const std::string id_string = id_func( begin );
         if( !tileset_ptr->find_tile_type( prefix + id_string ) ) {
-            missing++;
             missing_list.append( id_string + " " );
-        } else {
-            present++;
         }
     }
     DebugLog( D_INFO, DC_ALL ) << "Missing " << label << ": " << missing_list;
