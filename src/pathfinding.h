@@ -65,6 +65,7 @@ struct pathfinding_settings {
 
     pathfinding_settings() = default;
     pathfinding_settings( const pathfinding_settings & ) = default;
+    pathfinding_settings &operator=( const pathfinding_settings & ) = default;
     pathfinding_settings( int bs, int md, int ml, int cc, bool aod, bool at, bool acs, bool art )
         : bash_strength( bs ), max_dist( md ), max_length( ml ), climb_cost( cc ),
           allow_open_doors( aod ), avoid_traps( at ), allow_climb_stairs( acs ), avoid_rough_terrain( art ) {}
