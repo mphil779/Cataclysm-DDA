@@ -11381,7 +11381,6 @@ void game::fling_creature( Creature *c, const int &dir, float flvel, bool contro
         return;
     }
 
-    int steps = 0;
     bool thru = true;
     const bool is_u = ( c == &u );
     // Don't animate critters getting bashed if animations are off
@@ -11465,7 +11464,6 @@ void game::fling_creature( Creature *c, const int &dir, float flvel, bool contro
             break;
         }
         range--;
-        steps++;
         if( animate && ( seen || u.sees( *c ) ) ) {
             draw();
         }
