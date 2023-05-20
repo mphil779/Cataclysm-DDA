@@ -95,6 +95,7 @@ class faction_template
 
     public:
         explicit faction_template( const faction_template & ) = default;
+        faction_template &operator=( const faction_template & ) = default;
         static void load( JsonObject &jsobj );
         static void reset();
 
