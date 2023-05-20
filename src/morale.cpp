@@ -242,7 +242,7 @@ void player_morale::add( morale_type type, int bonus, int max_bonus,
                          const time_duration duration, const time_duration decay_start,
                          bool capped, const itype *item_type )
 {
-    if( ( duration == 0_turns ) & !is_permanent_morale( type ) ) {
+    if( ( duration == 0_turns ) && !is_permanent_morale( type ) ) {
         debugmsg( "Tried to set a non-permanent morale \"%s\" as permanent.",
                   type.obj().describe( item_type ).c_str() );
         return;
