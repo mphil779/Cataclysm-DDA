@@ -3947,7 +3947,7 @@ void overmap::add_mon_group( const mongroup &group )
             // To avoid this, the overmapbuffer checks the monster groups when loading
             // an overmap and moves groups with out-of-bounds position to another overmap.
             add_mon_group( tmp );
-            xpop += tmp.population;
+            //xpop += tmp.population; /* unused variable */
         }
     }
 }
