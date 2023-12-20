@@ -5624,7 +5624,7 @@ void player::suffer()
     } // Done with while-awake-only effects
 
     if( has_trait( trait_ASTHMA ) && one_in( ( 3600 - stim * 50 ) * ( has_effect( effect_sleep ) ? 10 : 1 ) ) &&
-        !has_effect( effect_adrenaline ) & !has_effect( effect_datura ) ) {
+        !has_effect( effect_adrenaline ) && !has_effect( effect_datura ) ) {
         bool auto_use = has_charges( "inhaler", 1 );
         bool oxygenator = has_bionic( bio_gills ) && power_level >= 3;
         if ( underwater ) {
