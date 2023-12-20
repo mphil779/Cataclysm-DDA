@@ -256,7 +256,7 @@ void item::load_info( const std::string &data )
 void overmap::unserialize_legacy( std::istream &fin )
 {
     // DEBUG VARS
-    int nummg = 0;
+    //int nummg = 0; /* unused variable */
     char datatype;
     int cx = 0;
     int cy = 0;
@@ -344,7 +344,7 @@ void overmap::unserialize_legacy( std::istream &fin )
             mg.set_target( tx, ty );
             mg.interest = intr;
             add_mon_group( mg );
-            nummg++;
+            //nummg++; /* unused variable */
         } else if( datatype == 'M' ) {
             tripoint mon_loc;
             monster new_monster;
