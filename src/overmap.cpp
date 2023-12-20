@@ -3897,7 +3897,7 @@ void overmap::add_mon_group( const mongroup &group )
     const int rad = std::max<int>( 0, group.radius );
     const double total_area = group.diffuse ? std::pow( rad + 1, 2 ) : ( rad * rad * M_PI + 1 );
     const double pop = std::max<int>( 0, group.population );
-    int xpop = 0;
+    //int xpop = 0; /* unused variable */
     for( int x = -rad; x <= rad; x++ ) {
         for( int y = -rad; y <= rad; y++ ) {
             const int dist = group.diffuse ? square_dist( x, y, 0, 0 ) : trig_dist( x, y, 0, 0 );
