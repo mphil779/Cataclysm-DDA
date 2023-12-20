@@ -54,7 +54,7 @@ std::vector<item_pricing> init_selling( npc &p )
         }
     }
 
-    if( p.is_friend() & !p.weapon.is_null() && !p.weapon.has_flag( "NO_UNWIELD" ) ) {
+    if( p.is_friend() && !p.weapon.is_null() && !p.weapon.has_flag( "NO_UNWIELD" ) ) {
         result.emplace_back( p, &p.weapon, p.value( p.weapon ), false );
     }
 
@@ -256,10 +256,10 @@ TAB key to switch lists, letters to pick items, Enter to finalize, Esc to quit,\
                 const auto &offset = they ? them_off : you_off;
                 const auto &person = they ? p : g->u;
                 auto &w_whose = they ? w_them : w_you;
-                int win_h = getmaxy( w_whose );
+                //int win_h = getmaxy( w_whose ); /* unused variable */
                 int win_w = getmaxx( w_whose );
                 // Borders
-                win_h -= 2;
+                //win_h -= 2; /* unused variable */
                 win_w -= 2;
                 for( size_t i = offset; i < list.size() && i < entries_per_page + offset; i++ ) {
                     const item_pricing &ip = list[i];
