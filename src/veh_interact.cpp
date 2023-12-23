@@ -586,12 +586,12 @@ bool veh_interact::can_install_part() {
 
     bool is_engine = sel_vpart_info->has_flag( "ENGINE" );
     //count current engines, some engines don't require higher skill
-    int engines = 0;
+    //int engines = 0; /* unused variable */
     int dif_eng = 0;
     if( is_engine && sel_vpart_info->has_flag( "E_HIGHER_SKILL" ) ) {
         for( const vpart_reference &vp : veh->get_avail_parts( "ENGINE" ) ) {
             if( vp.has_feature( "E_HIGHER_SKILL" ) ) {
-                engines++;
+                //engines++; /* unused variable */
                 dif_eng = dif_eng / 2 + 8;
             }
         }
