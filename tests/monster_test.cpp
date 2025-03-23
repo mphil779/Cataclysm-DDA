@@ -28,6 +28,8 @@ static int moves_to_destination( const std::string &monster_type,
     test_monster.set_moves( 0 );
     const int monster_speed = test_monster.get_speed();
     int moves_spent = 0;
+    int result = 100000; // Default to high number
+
     for( int turn = 0; turn < 1000; ++turn ) {
         test_monster.mod_moves( monster_speed );
         while( test_monster.moves >= 0 ) {
@@ -36,14 +38,15 @@ static int moves_to_destination( const std::string &monster_type,
             test_monster.move();
             moves_spent += moves_before - test_monster.moves;
             if( test_monster.pos() == test_monster.move_target() ) {
-                g->remove_zombie( test_monster );
-                return moves_spent;
+                result = moves_spent; // Explicitly use moves_spent
+                turn = 1000; // Force exit from outer loop too
+                break;
             }
         }
     }
+
     g->remove_zombie( test_monster );
-    // Return an unreasonably high number.
-    return 100000;
+    return result;
 }
 
 
